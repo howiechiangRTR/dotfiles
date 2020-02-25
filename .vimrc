@@ -1,9 +1,11 @@
+" Line Number
 set number
 set relativenumber
 
-###########
-# TreeView
-###########
+" Tab Spacing
+set tabstop=4
+
+" Treeview
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
