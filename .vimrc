@@ -22,6 +22,7 @@ set linebreak
 set scrolloff=1
 set sidescrolloff=5
 syntax enable
+colorscheme desert
 set wrap
 
 " User Interface
