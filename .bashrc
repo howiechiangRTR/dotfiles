@@ -144,4 +144,7 @@ alias n="nautilus ."
 alias cura="/usr/share/Ultimaker_Cura-4.3.0.AppImage"
 alias chmodx="sudo chmod +x"
 
-
+alias webapp="./install/lib/rtr_appliance_webapp/rtr_appliance_webapp"
+alias app="./devel/lib/rtr_appliance_app/rtr_appliance_app"
+alias spatial_perception="./devel/lib/rtr_spatial_perception/rtr_spatial_perception"
+alias rapidsense="./devel/lib/rtr_rapidsense_gui/rtr_rapidsense_gui"
