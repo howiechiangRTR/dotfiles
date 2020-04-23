@@ -120,30 +120,52 @@ fi
 # run 'gdb /path/to/exe core' to take a look 
 ulimit -c unlimited    
 
+####################### ENVVARS #############################
 export ROS_MASTER_URI=http://localhost:11311
 export RTR_LOG_STYLE=ALT4
+export RTR_LOG_LEVEL=DEBUG
+
+######################## ALIASES ############################
+# Apps
 alias squish="sudo /usr/share/squish-for-qt-6.5/bin/ide/squishide"
 alias postman="/usr/share/Postman/Postman"
-alias sr="source /opt/ros/melodic/setup.bash"
-alias srr="source ~/rtr_work/release_1_1_2/devel/setup.bash && source ~/rtr_work/release_1_1_2/install/setup.bash"
-alias cdrp="cd ~/rtr_work/release_1_1_2"
-alias pinata="cd ~/rtr_work/sqa-test-monorepo/"
+alias cura="/usr/share/Ultimaker_Cura-4.3.0.AppImage"
+
+# Dir
+alias cdrp="cd ~/rtr_work/rapidplan"
 alias downloads="cd ~/Downloads"
-alias cleanRTR="cd ~/Downloads && sudo apt purge ros-kinetic-rtr* -y"
+alias pinata="cd ~/rtr_work/sqa-test-monorepo/"
+alias td="cd ~/rtr_work/test-data"
+alias tdf="cd ~/rtr_work/test-data/rapidplan_projects/internal"
+
+# Utility
+alias cl="clear"
+alias n="nautilus ."
+alias chmodx="sudo chmod +x"
+
+# Git
 alias gs="git status"
 alias gf="git fetch"
 alias gd="git diff"
 alias gl="git log"
 alias gb="git branch"
 alias gstash="git stash"
-alias td="cd ~/test-data"
-alias tdf="cd ~/rtr_work/test-data/rapidplan_projects/internal"
-alias cl="clear"
-alias n="nautilus ."
-alias cura="/usr/share/Ultimaker_Cura-4.3.0.AppImage"
-alias chmodx="sudo chmod +x"
+
+# Rapidplan Repo
+alias cleanRTR="cd ~/Downloads && sudo apt purge ros-melodic-rtr* -y"
+alias src="source /opt/ros/melodic/setup.bash"
+alias srcRapid="source ~/rtr_work/rapidplan/devel/setup.bash && source ~/rtr_work/rapidplan/install/setup.bash"
 
 alias webapp="./install/lib/rtr_appliance_webapp/rtr_appliance_webapp"
 alias app="./devel/lib/rtr_appliance_app/rtr_appliance_app"
-alias spatial_perception="./devel/lib/rtr_spatial_perception/rtr_spatial_perception"
+alias spe="./devel/lib/rtr_spatial_perception/rtr_spatial_perception"
 alias rapidsense="./devel/lib/rtr_rapidsense_gui/rtr_rapidsense_gui"
+
+# RTR Applications
+alias which_rp="apt-cache policy rapidplan"
+alias restart_app="systemctl restart ros-melodic-appliance-app.service"
+alias restart_spe="systemctl restart ros-melodic-spatial-perception.service"
+
+# RTR LOGS
+alias log_app="sudo cp /var/log/rtr_appliance_app/rtr_appliance_app.log /var/log/rtr_appliance_app/last_log.log && vim /var/log/rtr_appliance_app/last_log.log"
+alias log_spe="sudo cp /var/log/rtr_spatial_perception/rtr_spatial_perception.log /var/log/rtr_spatial_perception/last_log.log && vim /var/log/rtr_spatial_perception/last_log.log"
