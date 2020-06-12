@@ -1,0 +1,9 @@
+
+selectp -t 0            # select pane 0
+splitw -h -p 50         # split plane in half vertically
+
+selectp -t 1            # select pane 1 and go to test repo
+splitw -v -p 20         # split pane horizontally
+selectp -t 2            # select pane 2
+splitw -h -p 50         # split pane in half
+selectp -t 0            # go back to pane 0
