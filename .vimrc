@@ -70,10 +70,14 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
 " User Interface
+set hidden      " allow going to another file without saving
+"set insearch    " show partial word when searching
 set wildmenu
 set laststatus=2
 set title
 set background=dark
+setlocal colorcolumn=80
+
 
 " Misc
 set history=1000
