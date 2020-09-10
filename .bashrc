@@ -124,10 +124,11 @@ ulimit -c unlimited
 export ROS_MASTER_URI=http://localhost:11311
 export RTR_LOG_STYLE=ALT4
 export RTR_LOG_LEVEL=DEBUG
+export ROS_PYTHON_VERSION=3
 
 ######################## ALIASES ############################
 # Apps
-alias squish="sudo /usr/share/squish-for-qt-6.5/bin/ide/squishide"
+alias squish="/usr/share/squish/bin/ide/squishide"
 alias postman="/usr/share/Postman/Postman"
 alias cura="/usr/share/Ultimaker_Cura-4.3.0.AppImage"
 
@@ -142,6 +143,8 @@ alias tdf="cd ~/rtr_work/test-data/rapidplan_projects/internal"
 alias cl="clear"
 alias n="nautilus ."
 alias chmodx="sudo chmod +x"
+alias lp_ON="gsettings set org.gnome.settings-daemon.peripherals.mouse locate-pointer true"
+alias lp_OFF="gsettings set org.gnome.settings-daemon.peripherals.mouse locate-pointer false"
 
 # Git
 alias gs="git status"
@@ -152,20 +155,38 @@ alias gb="git branch"
 alias gstash="git stash"
 
 # Rapidplan Repo
-alias cleanRTR="cd ~/Downloads && sudo apt purge ros-melodic-rtr* -y"
+alias cleanRTR="cd ~/Downloads && sudo apt purge rapidplan -y"
 alias src="source /opt/ros/melodic/setup.bash"
 alias srcRapid="source ~/rtr_work/rapidplan/devel/setup.bash && source ~/rtr_work/rapidplan/install/setup.bash"
 
-alias webapp="./install/lib/rtr_appliance_webapp/rtr_appliance_webapp"
-alias app="./devel/lib/rtr_appliance_app/rtr_appliance_app"
-alias spe="./devel/lib/rtr_spatial_perception/rtr_spatial_perception"
-alias rapidsense="./devel/lib/rtr_rapidsense_gui/rtr_rapidsense_gui"
+alias lcl_webapp="./install/lib/rtr_appliance_webapp/rtr_appliance_webapp"
+alias lcl_app="./devel/lib/rtr_appliance_app/rtr_appliance_app"
+alias lcl_spe="./devel/lib/rtr_spatial_perception/rtr_spatial_perception"
+alias lcl_rs_gui="./devel/lib/rtr_rapidsense_gui/rtr_rapidsense_gui"
+alias lcl_rs_sim="./devel/lib/rtr_spatial_perception/rapidsense_sim_node"
+
+# Megadeb Commands
+alias start_sim_node="/opt/ros/melodic/lib/rtr_spatial_perception/rapidsense_sim_node"
+alias clear_app_db="sudo rm -r /var/lib/rtr_appliance_app/appliance_data/*"
+alias clear_spe_db="sudo rm -r /var/lib/rtr_spatial_perception/*"
+alias set_log_level="sudo systemctl set-environment RTR_LOG_STYLE=ALT4 && sudo systemctl set-environment RTR_LOG_LEVEL=DEBUG"
 
 # RTR Applications
 alias which_rp="apt-cache policy rapidplan"
-alias restart_app="systemctl restart ros-melodic-appliance-app.service"
-alias restart_spe="systemctl restart ros-melodic-spatial-perception.service"
+alias restart_app="systemctl restart rtr_appliance_app.service"
+alias restart_spe="systemctl restart rtr_spatial_perception.service"
 
 # RTR LOGS
-alias log_app="sudo cp /var/log/rtr_appliance_app/rtr_appliance_app.log /var/log/rtr_appliance_app/last_log.log && vim /var/log/rtr_appliance_app/last_log.log"
-alias log_spe="sudo cp /var/log/rtr_spatial_perception/rtr_spatial_perception.log /var/log/rtr_spatial_perception/last_log.log && vim /var/log/rtr_spatial_perception/last_log.log"
+alias tail_app="tail -f -n 2000 /opt/ros/melodic/var/log/rtr/rtr_appliance_app.log"
+alias tail_spe="tail -f -n 2000 /opt/ros/melodic/var/log/rtr/RapidSenseServer.log"
+alias tail_rs_gui="tail -f -n 2000 /opt/ros/melodic/var/log/rtr/rtr_rapidsense_gui.log"
+alias tail_rs_sim="tail -f -n 2000 /opt/ros/melodic/var/log/rtr/Rapidsense.log"
+
+# RTR Data
+alias cd_app_data="cd /var/lib/rtr_appliance_app/appliance_data/"
+alias cd_spe_data="cd /var/lib/rtr_spatial_perception/"
+alias cd_rtr_log="cd /opt/ros/melodic/var/log/rtr/"
+
+
+# RTR Env Vars
+alias enable_sim_node="sudo systemctl set-environment RTR_DEV_MODE=TRUE && dpkg -L rapidplan | grep -E '^/lib/systemd/system/[^/]+[.]service$' | xargs -r basename -a | xargs -rL1 sudo systemctl restart"
