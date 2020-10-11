@@ -1,4 +1,5 @@
 NeoBundleLock ack.vim 36e40f9ec91bdbf6f1adf408522a73a6925c3042
+NeoBundleLock coc.nvim 8a5b4b2f928482f2a07ddb05087eb4f5624834ef
 NeoBundleLock ctrlp.vim d93d97813dc839ef0782302a0debd7c4877f09f3
 NeoBundleLock fzf.vim 2bf85d25e203a536edb2c072c0d41b29e8e4cc1b
 NeoBundleLock gruvbox 040138616bec342d5ea94d4db296f8ddca17007a

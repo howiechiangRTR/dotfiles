@@ -155,6 +155,7 @@ alias gb="git branch"
 alias gstash="git stash"
 
 # Rapidplan Repo
+export RTR_ROBOT_MODELS_MASTER_TOKEN=ce0d1f596e8a5e3af3c17ddc60393bfc229cd28f01f781e1
 alias cleanRTR="cd ~/Downloads && sudo apt purge rapidplan -y"
 alias src="source /opt/ros/melodic/setup.bash"
 alias srcRapid="source ~/rtr_work/rapidplan/devel/setup.bash && source ~/rtr_work/rapidplan/install/setup.bash"
@@ -177,10 +178,11 @@ alias restart_app="systemctl restart rtr_appliance_app.service"
 alias restart_spe="systemctl restart rtr_spatial_perception.service"
 
 # RTR LOGS
-alias tail_app="tail -f -n 2000 /opt/ros/melodic/var/log/rtr/rtr_appliance_app.log"
-alias tail_spe="tail -f -n 2000 /opt/ros/melodic/var/log/rtr/RapidSenseServer.log"
-alias tail_rs_gui="tail -f -n 2000 /opt/ros/melodic/var/log/rtr/rtr_rapidsense_gui.log"
-alias tail_rs_sim="tail -f -n 2000 /opt/ros/melodic/var/log/rtr/Rapidsense.log"
+alias tail_app="tail -f -n 3000 /opt/ros/melodic/var/log/rtr/rtr_appliance_app.log"
+alias tail_spe="tail -f -n 3000 /opt/ros/melodic/var/log/rtr/RapidSenseServer.log"
+alias tail_rs_gui="tail -f -n 3000 /opt/ros/melodic/var/log/rtr/rtr_rapidsense_gui.log"
+alias tail_rs_sim="tail -f -n 3000 /opt/ros/melodic/var/log/rtr/Rapidsense.log"
+alias tail_wb="tail -f -n 3000 /opt/ros/melodic/var/log/rtr/rtr_world_builder.log"
 
 # RTR Data
 alias cd_app_data="cd /var/lib/rtr_appliance_app/appliance_data/"
@@ -189,4 +191,5 @@ alias cd_rtr_log="cd /opt/ros/melodic/var/log/rtr/"
 
 
 # RTR Env Vars
+alias elevate_rtr_log="sudo systemctl set-environment RTR_LOG_LEVEL=DEBUG && sudo systemctl set-environment RTR_LOG_STYLE=ALT4"
 alias enable_sim_node="sudo systemctl set-environment RTR_DEV_MODE=TRUE && dpkg -L rapidplan | grep -E '^/lib/systemd/system/[^/]+[.]service$' | xargs -r basename -a | xargs -rL1 sudo systemctl restart"
