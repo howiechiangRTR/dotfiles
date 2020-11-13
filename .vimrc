@@ -48,8 +48,8 @@ set relativenumber
 " Tab Spacing
 set autoindent
 set shiftround
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 set expandtab
 
 " Searching

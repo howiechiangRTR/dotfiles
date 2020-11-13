@@ -133,7 +133,8 @@ alias postman="/usr/share/Postman/Postman"
 alias cura="/usr/share/Ultimaker_Cura-4.3.0.AppImage"
 
 # Dir
-alias cdrp="cd ~/rtr_work/rapidplan"
+alias cdws="cd ~/rtr_work/catkin_ws"
+alias cdrp="cd ~/rtr_work/catkin_ws/src/rapidplan"
 alias downloads="cd ~/Downloads"
 alias pinata="cd ~/rtr_work/sqa-test-monorepo/"
 alias td="cd ~/rtr_work/test-data"
@@ -158,7 +159,7 @@ alias gstash="git stash"
 export RTR_ROBOT_MODELS_MASTER_TOKEN=ce0d1f596e8a5e3af3c17ddc60393bfc229cd28f01f781e1
 alias cleanRTR="cd ~/Downloads && sudo apt purge rapidplan -y"
 alias src="source /opt/ros/melodic/setup.bash"
-alias srcRapid="source ~/rtr_work/rapidplan/devel/setup.bash && source ~/rtr_work/rapidplan/install/setup.bash"
+alias srcRapid="source ~/rtr_work/catkin_ws/devel/setup.bash && source ~/rtr_work/catkin_ws/install/setup.bash"
 
 alias lcl_webapp="./install/lib/rtr_appliance_webapp/rtr_appliance_webapp"
 alias lcl_app="./devel/lib/rtr_appliance_app/rtr_appliance_app"
