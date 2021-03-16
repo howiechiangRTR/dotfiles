@@ -166,6 +166,7 @@ alias lcl_app="./devel/lib/rtr_appliance_app/rtr_appliance_app"
 alias lcl_spe="./devel/lib/rtr_spatial_perception/rtr_spatial_perception"
 alias lcl_rs_gui="./devel/lib/rtr_rapidsense_gui/rtr_rapidsense_gui"
 alias lcl_rs_sim="./devel/lib/rtr_spatial_perception/rapidsense_sim_node"
+alias lcl_elevate_log="export RTR_LOG_LEVEL=DEBUG && export RTR_LOG_STYLE=ALT4"
 
 # Megadeb Commands
 alias start_sim_node="/opt/ros/melodic/lib/rtr_spatial_perception/rapidsense_sim_node"
@@ -175,8 +176,11 @@ alias set_log_level="sudo systemctl set-environment RTR_LOG_STYLE=ALT4 && sudo s
 
 # RTR Applications
 alias which_rp="apt-cache policy rapidplan"
-alias restart_app="systemctl restart rtr_appliance_app.service"
-alias restart_spe="systemctl restart rtr_spatial_perception.service"
+alias restart_app="sudo systemctl restart rtr_appliance_app.service"
+alias restart_spe="sudo systemctl restart rtr_spatial_perception.service"
+alias restart_webapp="sudo systemctl restart rtr_appliance_webapp.service"
+alias stop_rapidplan="dpkg -L rapidplan | grep -oE 'rtr_[^/]+[.]service' | xargs sudo systemctl stop"
+alias start_rapidplan="dpkg -L rapidplan | grep -oE 'rtr_[^/]+[.]service' | xargs sudo systemctl start"
 
 # RTR LOGS
 alias tail_app="tail -f -n 3000 /opt/ros/melodic/var/log/rtr/rtr_appliance_app.log"
@@ -194,3 +198,6 @@ alias cd_rtr_log="cd /opt/ros/melodic/var/log/rtr/"
 # RTR Env Vars
 alias elevate_rtr_log="sudo systemctl set-environment RTR_LOG_LEVEL=DEBUG && sudo systemctl set-environment RTR_LOG_STYLE=ALT4"
 alias enable_sim_node="sudo systemctl set-environment RTR_DEV_MODE=TRUE && dpkg -L rapidplan | grep -E '^/lib/systemd/system/[^/]+[.]service$' | xargs -r basename -a | xargs -rL1 sudo systemctl restart"
+
+# RTR NAS
+alias mount_nas="sudo mount -t cifs -o user=perception //10.164.2.108/dematic_data /mnt/NAS"
